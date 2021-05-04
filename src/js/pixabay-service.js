@@ -13,7 +13,7 @@ export default class PixabayApiService {
             orientation: 'horizontal',
             q: this.searchQuery,
             page: this.page,
-            per_page: 12,
+            per_page: '12',
             key: API_KEY,
         });
 
@@ -24,6 +24,7 @@ export default class PixabayApiService {
         }
         
         const result = await rawResult.json();
+        this.incrementPage();
 
         return result.hits;
     }
